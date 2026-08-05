@@ -24,6 +24,9 @@ npm run dev       # dev server at http://localhost:5173
 npm run build     # typecheck + production build to dist/
 npm run preview   # serve the built bundle
 npm run lint      # oxlint
+
+npm run resume:pdf      # regenerate public/resume.pdf
+npm run optimize:logos  # downsample src/assets/logos in place
 ```
 
 ## Editing the content
@@ -50,8 +53,24 @@ The theme follows the OS preference by default and can be toggled; the choice
 persists to `localStorage`, and an inline script in `index.html` applies it before
 first paint to avoid a flash.
 
-The page also carries a print stylesheet — "Download résumé" calls `window.print()`,
-which drops the navigation and chrome and lays the content out as ink on paper.
+The page also carries a print stylesheet, which drops the navigation and chrome and
+lays the content out as ink on paper at a tighter density. "Print" in the sidebar
+sends the live page through it.
+
+## The résumé PDF
+
+"Download résumé" serves `public/resume.pdf` — a **committed artifact**, not a build
+step. `npm run resume:pdf` builds the site, renders it through the print stylesheet
+with Playwright, and writes the PDF back into `public/`.
+
+Keeping it committed means the Netlify build needs no headless browser, which is why
+`PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD` is set in `netlify.toml`.
+
+**Regenerate the PDF whenever `src/data/resume.ts` changes** — nothing enforces this,
+so an edited site with a stale PDF is the failure mode to watch for.
+
+If Playwright can't find Chromium, either run `npx playwright install chromium` or
+point `PLAYWRIGHT_CHROMIUM_PATH` at an existing executable.
 
 ## Adding shadcn components
 

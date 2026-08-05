@@ -38,9 +38,9 @@ export default function App() {
 
         <main className="min-w-0 pt-7">
           <Section id="overview" title="Overview">
-            <div className="mb-7">
+            <div className="print-tight mb-7">
               <span className="mb-3.5 inline-flex items-center gap-2 rounded-full bg-ok-soft px-2.5 py-1 text-xs font-semibold text-ok">
-                <span aria-hidden="true" className="size-1.5 rounded-full bg-current" />
+                <span aria-hidden="true" className="no-print size-1.5 rounded-full bg-current" />
                 {PROFILE.title} at {PROFILE.employer}
               </span>
 

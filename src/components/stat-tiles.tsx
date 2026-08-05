@@ -8,7 +8,7 @@ export type Stat = {
 
 export function StatTiles({ stats }: { stats: Stat[] }) {
   return (
-    <dl className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+    <dl className="print-tiles grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
       {stats.map((stat) => (
         <Card key={stat.label} className="print-flat p-4">
           <dt className="text-[11px] font-semibold uppercase tracking-[0.07em] text-muted-foreground">

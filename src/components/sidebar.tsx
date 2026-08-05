@@ -1,4 +1,4 @@
-import { Mail, Moon, Phone, Printer, Sun } from "lucide-react"
+import { Download, Mail, Moon, Phone, Printer, Sun } from "lucide-react"
 
 import avatar from "@/assets/logos/pc-icon.png"
 import { GithubIcon } from "@/components/github-icon"
@@ -52,9 +52,15 @@ export function Sidebar({ active }: { active: string }) {
       </nav>
 
       <div className="no-print flex gap-2 lg:mt-auto lg:flex-col lg:items-stretch">
-        <Button variant="outline" size="sm" onClick={() => window.print()}>
+        <Button variant="outline" size="sm" asChild>
+          <a href="/resume.pdf" download="peter-clark-resume.pdf">
+            <Download aria-hidden="true" />
+            Download résumé
+          </a>
+        </Button>
+        <Button variant="ghost" size="sm" onClick={() => window.print()}>
           <Printer aria-hidden="true" />
-          Download résumé
+          Print
         </Button>
         <Button variant="ghost" size="sm" onClick={toggle}>
           <Sun aria-hidden="true" className="hidden dark:block" />

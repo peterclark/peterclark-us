@@ -172,12 +172,41 @@
   }
 
   body {
-    font-size: 10.5pt;
+    font-size: 9.5pt;
     background: #fff;
   }
 
   a {
     text-decoration: none;
+  }
+
+  /* Screen spacing is generous by design; on paper it costs whole pages.
+     These override Tailwind utilities, hence !important. */
+  section {
+    padding-bottom: 0.7rem !important;
+  }
+
+  h1 {
+    font-size: 21pt !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  h2 {
+    font-size: 12pt !important;
+  }
+
+  .print-flat {
+    padding: 0.6rem 0.8rem !important;
+  }
+
+  .print-tight {
+    gap: 0.4rem !important;
+    margin-bottom: 0.9rem !important;
+  }
+
+  /* Four tiles across instead of wrapping to a second row. */
+  .print-tiles {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   }
 
   /* Surface link targets that aren't obvious in ink. */
