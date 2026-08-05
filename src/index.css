@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+@import "@fontsource-variable/geist/index.css";
+@import "@fontsource-variable/geist-mono/index.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── palette ────────────────────────────────────────────────
+   Neutrals carry a slight cyan bias so they sit with the
+   petrol accent rather than reading as generic grey.
+   ─────────────────────────────────────────────────────────── */
+:root {
+  --radius: 0.7rem;
+
+  --background: #f6f9f9;
+  --foreground: #121a1b;
+
+  --card: #ffffff;
+  --card-foreground: #121a1b;
+  --popover: #ffffff;
+  --popover-foreground: #121a1b;
+
+  --primary: #15606e;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f0f5f5;
+  --secondary-foreground: #121a1b;
+
+  --muted: #f0f5f5;
+  --muted-foreground: #67777a;
+
+  --accent: #e2f0f2;
+  --accent-foreground: #15606e;
+
+  --destructive: #b3392f;
+
+  --border: #e1e9e9;
+  --input: #e1e9e9;
+  --ring: #15606e;
+
+  /* extensions beyond the shadcn set */
+  --faint: #9aa9ab;
+  --ok: #2e7d53;
+  --ok-soft: #e3f2e9;
+}
+
+.dark {
+  --background: #0e1315;
+  --foreground: #e7eded;
+
+  --card: #151c1e;
+  --card-foreground: #e7eded;
+  --popover: #151c1e;
+  --popover-foreground: #e7eded;
+
+  --primary: #5cb9c9;
+  --primary-foreground: #0e1315;
+
+  --secondary: #1c2426;
+  --secondary-foreground: #e7eded;
+
+  --muted: #1c2426;
+  --muted-foreground: #8fa0a2;
+
+  --accent: #143038;
+  --accent-foreground: #5cb9c9;
+
+  --destructive: #e06a5e;
+
+  --border: #263032;
+  --input: #263032;
+  --ring: #5cb9c9;
+
+  --faint: #627376;
+  --ok: #6bc28f;
+  --ok-soft: #16301f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-faint: var(--faint);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── print ──────────────────────────────────────────────────
+   The page doubles as the résumé handout: drop the chrome,
+   go to ink-on-paper, and keep entries off page breaks.
+   ─────────────────────────────────────────────────────────── */
+@media print {
+  @page {
+    margin: 14mm 12mm;
+  }
+
+  :root,
+  .dark {
+    --background: #ffffff;
+    --foreground: #000000;
+    --card: #ffffff;
+    --card-foreground: #000000;
+    --secondary: #ffffff;
+    --muted: #ffffff;
+    --muted-foreground: #333333;
+    --border: #bbbbbb;
+    --primary: #000000;
+    --accent: #ffffff;
+    --accent-foreground: #000000;
+    --faint: #555555;
+    --ok: #000000;
+    --ok-soft: #ffffff;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    font-size: 10.5pt;
+    background: #fff;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  /* Surface link targets that aren't obvious in ink. */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #555;
+    word-break: break-all;
+  }
+
+  a[href^="mailto"]::after,
+  a[href^="tel"]::after,
+  a[href^="#"]::after,
+  a.print-no-url::after {
+    content: "";
+  }
+
+  .print-block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-flat {
+    box-shadow: none !important;
+    border-color: #ccc !important;
+  }
+}

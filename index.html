@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>Peter Clark — Senior Software Engineer</title>
+    <meta
+      name="description"
+      content="Peter Clark is a senior software engineer in San Antonio, Texas — TypeScript, React, NestJS and AWS, with 27 years across the stack."
+    />
+    <link rel="canonical" href="https://peterclark.us/" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Peter Clark — Senior Software Engineer" />
+    <meta
+      property="og:description"
+      content="TypeScript, React, NestJS and AWS. 27 years across the stack, in San Antonio, Texas."
+    />
+    <meta property="og:url" content="https://peterclark.us/" />
+    <meta name="twitter:card" content="summary" />
+
+    <script>
+      // Set the theme before first paint so a dark-mode visitor never sees a white flash.
+      try {
+        const stored = localStorage.getItem("theme")
+        const dark =
+          stored === "dark" ||
+          (stored !== "light" && matchMedia("(prefers-color-scheme: dark)").matches)
+        if (dark) document.documentElement.classList.add("dark")
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
