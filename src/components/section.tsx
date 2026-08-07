@@ -9,7 +9,9 @@ type SectionProps = {
 
 export function Section({ id, title, count, children }: SectionProps) {
   return (
-    <section id={id} className="scroll-mt-6 pb-11">
+    // Anchor jumps must clear the pinned mobile nav bar; at lg the nav sits
+    // beside the content, so a small margin is enough.
+    <section id={id} className="scroll-mt-32 pb-11 lg:scroll-mt-6">
       <div className="mb-4 flex items-baseline gap-2.5">
         <h2 className="text-[17px] font-semibold tracking-[-0.015em]">{title}</h2>
         {count && (

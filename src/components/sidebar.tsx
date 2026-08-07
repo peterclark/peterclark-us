@@ -2,17 +2,22 @@ import { Download, Mail, Moon, Phone, Printer, Sun } from "lucide-react"
 
 import avatar from "@/assets/logos/pc-icon.png"
 import { GithubIcon } from "@/components/github-icon"
+import { SectionNav } from "@/components/section-nav"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "@/hooks/use-theme"
-import { cn } from "@/lib/utils"
-import { PROFILE, SECTIONS } from "@/data/resume"
+import { PROFILE } from "@/data/resume"
 
+/**
+ * The desktop sidebar: sticky beside the content, so nothing scrolls behind it
+ * and it needs no background of its own. Below lg the identity and nav move to
+ * SiteHeader, and only the action buttons remain here.
+ */
 export function Sidebar({ active }: { active: string }) {
   const { toggle } = useTheme()
 
   return (
-    <aside className="sticky top-0 flex h-auto flex-col gap-6 self-start py-7 lg:h-dvh">
-      <div className="flex items-center gap-3">
+    <aside className="flex flex-col self-start lg:sticky lg:top-0 lg:h-dvh lg:py-7">
+      <div className="hidden items-center gap-3 pb-6 lg:flex">
         <img
           src={avatar}
           alt=""
@@ -26,32 +31,11 @@ export function Sidebar({ active }: { active: string }) {
         </div>
       </div>
 
-      <nav
-        aria-label="Sections"
-        className="no-print flex flex-row flex-wrap gap-1 lg:flex-col lg:gap-px"
-      >
-        {SECTIONS.map((section) => {
-          const current = active === section.id
-          return (
-            <a
-              key={section.id}
-              href={`#${section.id}`}
-              aria-current={current ? "true" : undefined}
-              className={cn(
-                "rounded-md px-3 py-1.5 text-[13.5px] font-medium transition-colors",
-                "border border-border lg:border-transparent",
-                current
-                  ? "bg-accent text-accent-foreground font-semibold lg:border-transparent"
-                  : "text-muted-foreground hover:bg-secondary hover:text-foreground",
-              )}
-            >
-              {section.label}
-            </a>
-          )
-        })}
-      </nav>
+      <div className="hidden lg:block">
+        <SectionNav active={active} layout="rail" />
+      </div>
 
-      <div className="no-print flex gap-2 lg:mt-auto lg:flex-col lg:items-stretch">
+      <div className="no-print flex gap-2 py-6 lg:mt-auto lg:flex-col lg:items-stretch lg:pb-0">
         <Button variant="outline" size="sm" asChild>
           <a href="/resume.pdf" download="peter-clark-resume.pdf">
             <Download aria-hidden="true" />
@@ -70,7 +54,7 @@ export function Sidebar({ active }: { active: string }) {
         </Button>
       </div>
 
-      <div className="no-print hidden flex-col gap-1.5 text-xs text-muted-foreground lg:flex">
+      <div className="no-print hidden flex-col gap-1.5 pt-6 text-xs text-muted-foreground lg:flex">
         <a href={`mailto:${PROFILE.email}`} className="flex items-center gap-2 hover:text-primary">
           <Mail aria-hidden="true" className="size-3.5" />
           {PROFILE.email}
