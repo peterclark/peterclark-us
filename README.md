@@ -37,9 +37,10 @@ update the résumé itself.
 
 A few notes on how that data behaves:
 
-- `PROFILE.since` drives the "27 years" arithmetic. It is computed against the current
-  year at render, so it never goes stale.
 - A role with `end: "present"` is styled as the current position.
+- The page deliberately states no total years of experience. Tenure figures invite
+  age-based screening, so seniority is conveyed through scope — team size, client
+  names, role titles — rather than a year count.
 - `lead` marks the headline technologies in any `stack` or skill group — they render as
   filled badges, the rest as outline.
 - Client logos are imported from `src/assets/logos` and flattened to monochrome by

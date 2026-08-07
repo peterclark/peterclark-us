@@ -7,25 +7,19 @@ import { Section } from "@/components/section"
 import { Sidebar } from "@/components/sidebar"
 import { StatTiles, type Stat } from "@/components/stat-tiles"
 import { useScrollSpy } from "@/hooks/use-scroll-spy"
-import {
-  CERTIFICATIONS,
-  EDUCATION,
-  NOW,
-  PROFILE,
-  ROLES,
-  SECTIONS,
-  SKILLS,
-} from "@/data/resume"
+import { CERTIFICATIONS, EDUCATION, PROFILE, ROLES, SECTIONS, SKILLS } from "@/data/resume"
 
 const SECTION_IDS = SECTIONS.map((section) => section.id)
 
-const YEARS = NOW - PROFILE.since
-
 const STATS: Stat[] = [
-  { label: "Shipping since", value: String(PROFILE.since), detail: `${YEARS} years` },
   { label: "Roles", value: String(ROLES.length), detail: "Engineer → director" },
-  { label: "Consulting clients", value: "8", detail: "2016 – 2019" },
+  { label: "Consulting clients", value: "8", detail: "Fortune 500 to startup" },
   { label: "Largest team led", value: "19", detail: "7 direct reports" },
+  {
+    label: "Certifications",
+    value: String(CERTIFICATIONS.length),
+    detail: "React, MongoDB, Scrum, Java",
+  },
 ]
 
 export default function App() {
@@ -45,7 +39,7 @@ export default function App() {
               </span>
 
               <h1 className="text-pretty text-[clamp(1.75rem,4.4vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.028em]">
-                Full-stack engineer, {YEARS} years in.
+                Full-stack engineer building endpoint security at scale.
               </h1>
 
               <p className="mt-3 max-w-[66ch] text-base text-muted-foreground">

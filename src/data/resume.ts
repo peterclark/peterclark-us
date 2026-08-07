@@ -44,7 +44,6 @@ export const PROFILE = {
   title: "Senior Software Engineer 2",
   employer: "Sophos",
   location: "San Antonio, TX",
-  since: 1999,
   email: "peter@5clarks.net",
   phone: "(210) 863-8260",
   phoneHref: "tel:1-210-863-8260",
@@ -53,11 +52,8 @@ export const PROFILE = {
   github: "peterclark",
   githubHref: "https://github.com/peterclark",
   summary:
-    "Senior software engineer building endpoint security at scale — TypeScript and React on the front, NestJS and AWS behind it. Twenty-seven years across the stack, including thirteen directing technology for a multi-company retail group.",
+    "TypeScript and React on the front, NestJS and AWS behind it. Previously lead developer for USAA, Starbucks, and the City of Boston, and IT director for a multi-company retail group.",
 } as const
-
-/** Present-day year, used for the “since” arithmetic and the current role. */
-export const NOW = new Date().getFullYear()
 
 export const ROLES: Role[] = [
   {
