@@ -5,6 +5,7 @@ import { DetailRow } from "@/components/detail-row"
 import { RoleCard } from "@/components/role-card"
 import { Section } from "@/components/section"
 import { Sidebar } from "@/components/sidebar"
+import { SiteHeader } from "@/components/site-header"
 import { StatTiles, type Stat } from "@/components/stat-tiles"
 import { useScrollSpy } from "@/hooks/use-scroll-spy"
 import { CERTIFICATIONS, EDUCATION, PROFILE, ROLES, SECTIONS, SKILLS } from "@/data/resume"
@@ -27,6 +28,8 @@ export default function App() {
 
   return (
     <TooltipProvider delayDuration={150}>
+      <SiteHeader active={active} />
+
       <div className="mx-auto grid max-w-[1180px] gap-x-9 px-6 pb-24 lg:grid-cols-[236px_minmax(0,1fr)]">
         <Sidebar active={active} />
 

@@ -171,6 +171,19 @@
     display: none !important;
   }
 
+  /* Paper is narrower than the lg breakpoint, so the page prints in its mobile
+     layout — the header is where the name comes from. Strip the bar treatment
+     and let it sit in normal flow. */
+  .site-header {
+    position: static !important;
+    border-bottom: 0 !important;
+    backdrop-filter: none !important;
+  }
+
+  .site-header > div {
+    padding: 0 !important;
+  }
+
   body {
     font-size: 9.5pt;
     background: #fff;
