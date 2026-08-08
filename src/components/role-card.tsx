@@ -37,7 +37,24 @@ export function RoleCard({ role }: { role: Role }) {
               role.org
             )}
           </h3>
-          <p className="mt-0.5 text-sm text-muted-foreground">{role.title}</p>
+          <p className="mt-0.5 text-sm text-muted-foreground">
+            {role.title}
+            {role.product && (
+              <>
+                <span aria-hidden="true" className="px-1.5 text-faint">
+                  ·
+                </span>
+                <a
+                  href={role.product.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-primary hover:underline"
+                >
+                  {role.product.name}
+                </a>
+              </>
+            )}
+          </p>
         </div>
 
         <span
