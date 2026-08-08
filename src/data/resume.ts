@@ -22,6 +22,8 @@ export type Role = {
   org: string
   href?: string
   title: string
+  /** The specific product worked on, linked beside the role title. */
+  product?: { name: string; href: string }
   start: number
   end: number | "present"
   logo?: string
@@ -61,12 +63,18 @@ export const ROLES: Role[] = [
     org: "Sophos",
     href: "https://sophos.com",
     title: "Senior Software Engineer 2",
+    product: {
+      name: "Sophos MDR",
+      href: "https://www.sophos.com/en-us/services/managed-detection-and-response",
+    },
     start: 2019,
     end: "present",
     logo: sophosLogo,
-    // TODO(peter): rewrite in your own words — drafted from the stack you listed.
+    // Product framing is from the public Sophos MDR page. The second sentence —
+    // what your team specifically owns — is still my inference from your stack.
+    // TODO(peter): sharpen it to the systems you actually build.
     summary:
-      "Building the Unified Endpoint Protection Platform that autonomously prevents, detects, and responds to modern cyber-security threats. Full-stack work across a TypeScript React front end and NestJS services on AWS, with infrastructure as code and feature-flagged delivery.",
+      "On the team building Sophos MDR, a 24/7 managed detection and response service used by 40,000+ organizations, where analysts and agentic AI investigate and respond to threats on the customer's behalf across 500+ integrations spanning endpoint, network, cloud, identity, and email. Full-stack work across the TypeScript React front end and the NestJS services on AWS behind it, with infrastructure as code and feature-flagged delivery.",
     lead: ["TypeScript", "React", "NestJS", "AWS"],
     stack: [
       "TypeScript",
