@@ -42,7 +42,7 @@ export default function App() {
               </span>
 
               <h1 className="text-pretty text-[clamp(1.75rem,4.4vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.028em]">
-                Full-stack engineer building endpoint security at scale.
+                Full-stack engineer in San Antonio
               </h1>
 
               <p className="mt-3 max-w-[66ch] text-base text-muted-foreground">
