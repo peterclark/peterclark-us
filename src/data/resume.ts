@@ -74,7 +74,7 @@ export const ROLES: Role[] = [
     // what your team specifically owns — is still my inference from your stack.
     // TODO(peter): sharpen it to the systems you actually build.
     summary:
-      "On the team building Sophos MDR, a 24/7 managed detection and response service used by 40,000+ organizations, where analysts and agentic AI investigate and respond to threats on the customer's behalf across 500+ integrations spanning endpoint, network, cloud, identity, and email. Full-stack work across the TypeScript React front end and the NestJS services on AWS behind it, with infrastructure as code and feature-flagged delivery.",
+      "On the team building Sophos MDR, a 24/7 managed detection and response service used by 40,000+ organizations, where analysts and agentic AI investigate and respond to threats on the customer's behalf across 500+ integrations spanning endpoint, network, cloud, identity, and email. Full-stack work across the TypeScript React front end and the NestJS services on AWS behind it, with infrastructure as code and feature-flagged delivery. Member of the Sophos AI Champions team, maintaining the AI orchestration repository that wires Claude Code and Codex into the team's development workflow — shared agent configuration, automated pull request review, and CI integration — so that agentic coding is reproducible for every engineer rather than a per-developer setup.",
     lead: ["TypeScript", "React", "NestJS", "AWS"],
     stack: [
       "TypeScript",
@@ -88,6 +88,8 @@ export const ROLES: Role[] = [
       "DynamoDB",
       "SQS/SNS",
       "LaunchDarkly",
+      "Claude Code",
+      "Codex",
     ],
   },
   {
@@ -204,6 +206,9 @@ export const EDUCATION = [
 ]
 
 export const CERTIFICATIONS = [
+  // TODO(peter): confirm the year — placeholder until you tell me when you joined
+  // the AI Champions team.
+  { name: "Sophos AI Champion", year: 2025 },
   {
     name: "Mastering React",
     year: 2019,
