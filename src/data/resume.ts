@@ -74,7 +74,7 @@ export const ROLES: Role[] = [
     // what your team specifically owns — is still my inference from your stack.
     // TODO(peter): sharpen it to the systems you actually build.
     summary:
-      "On the team building Sophos MDR, a 24/7 managed detection and response service used by 40,000+ organizations, where analysts and agentic AI investigate and respond to threats on the customer's behalf across 500+ integrations spanning endpoint, network, cloud, identity, and email. Full-stack work across the TypeScript React front end and the NestJS services on AWS behind it, with infrastructure as code and feature-flagged delivery.",
+      "On the team building Sophos MDR, a 24/7 managed detection and response service used by 40,000+ organizations, where analysts and agentic AI investigate and respond to threats on the customer's behalf across 500+ integrations spanning endpoint, network, cloud, identity, and email. Full-stack work across the TypeScript React front end and the NestJS services on AWS behind it, with infrastructure as code and feature-flagged delivery. Member of the Sophos AI Champions team and author of its AI orchestration pipeline — cross-repo automation that carries a Jira ticket through to an open pull request, scoring tickets for implementation readiness and rewriting the ones that fall short, running a coding agent against the target repository, then validating through lint, unit, and component tests where each failure triggers a targeted agent fix and retry before the run commits, pushes, and opens the PR. Runs are checkpointed, so a long one resumes at the phase it stopped in.",
     lead: ["TypeScript", "React", "NestJS", "AWS"],
     stack: [
       "TypeScript",
@@ -88,6 +88,8 @@ export const ROLES: Role[] = [
       "DynamoDB",
       "SQS/SNS",
       "LaunchDarkly",
+      "Claude Code",
+      "Codex",
     ],
   },
   {
@@ -177,8 +179,8 @@ export const SKILLS: SkillGroup[] = [
   },
   {
     label: "AI tooling",
-    items: ["Claude Code", "Codex"],
-    lead: ["Claude Code"],
+    items: ["Claude Code", "Codex", "Agent orchestration"],
+    lead: ["Claude Code", "Agent orchestration"],
   },
   {
     label: "Process",
@@ -204,6 +206,7 @@ export const EDUCATION = [
 ]
 
 export const CERTIFICATIONS = [
+  { name: "Sophos AI Champion", year: 2025 },
   {
     name: "Mastering React",
     year: 2019,
