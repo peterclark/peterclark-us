@@ -8,7 +8,7 @@ import { Sidebar } from "@/components/sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { StatTiles, type Stat } from "@/components/stat-tiles"
 import { useScrollSpy } from "@/hooks/use-scroll-spy"
-import { CERTIFICATIONS, EDUCATION, PROFILE, ROLES, SECTIONS, SKILLS } from "@/data/resume"
+import { CERTIFICATIONS, EDUCATION, PROFILE, PROJECTS, ROLES, SECTIONS, SKILLS } from "@/data/resume"
 
 const SECTION_IDS = SECTIONS.map((section) => section.id)
 
@@ -57,6 +57,50 @@ export default function App() {
             <div className="flex flex-col gap-3">
               {ROLES.map((role) => (
                 <RoleCard key={role.id} role={role} />
+              ))}
+            </div>
+          </Section>
+
+          <Section id="projects" title="Projects" count={String(PROJECTS.length)}>
+            <div className="flex flex-col gap-2">
+              {PROJECTS.map((project) => (
+                <DetailRow
+                  key={project.name}
+                  title={
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary"
+                    >
+                      {project.name}
+                    </a>
+                  }
+                  subtitle={project.summary}
+                  trailing={
+                    // Badges report live CI state, so they say nothing frozen into
+                    // the PDF — and rendering them there would put a network fetch
+                    // in the middle of `npm run resume:pdf`.
+                    <div className="no-print flex flex-wrap items-center gap-2">
+                      {project.badges.map((badge) => (
+                        <a
+                          key={badge.label}
+                          href={badge.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img
+                            src={badge.src}
+                            alt={`${project.name} ${badge.label}`}
+                            className="h-5 w-auto"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </a>
+                      ))}
+                    </div>
+                  }
+                />
               ))}
             </div>
           </Section>

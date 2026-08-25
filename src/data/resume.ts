@@ -34,6 +34,15 @@ export type Role = {
   clients?: Client[]
 }
 
+export type Project = {
+  name: string
+  /** The running app, not the repository — the link people should follow first. */
+  href: string
+  summary: string
+  /** Live CI images served by the project's own workflow. */
+  badges: { label: string; src: string; href: string }[]
+}
+
 export type SkillGroup = {
   label: string
   items: string[]
@@ -146,6 +155,26 @@ export const ROLES: Role[] = [
   },
 ]
 
+export const PROJECTS: Project[] = [
+  {
+    name: "pointing.page",
+    href: "https://pointing.page",
+    summary: "A story pointing React app.",
+    badges: [
+      {
+        label: "CI",
+        src: "https://github.com/peterclark/pointing.page/actions/workflows/ci.yml/badge.svg",
+        href: "https://github.com/peterclark/pointing.page/actions/workflows/ci.yml",
+      },
+      {
+        label: "Coverage",
+        src: "https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fpeterclark%2Fpointing.page%2Fbadges%2Fcoverage.json",
+        href: "https://github.com/peterclark/pointing.page/actions/workflows/ci.yml",
+      },
+    ],
+  },
+]
+
 export const SKILLS: SkillGroup[] = [
   {
     label: "Languages",
@@ -233,6 +262,7 @@ export const CERTIFICATIONS = [
 export const SECTIONS = [
   { id: "overview", label: "Overview" },
   { id: "work", label: "Experience" },
+  { id: "projects", label: "Projects" },
   { id: "skills", label: "Stack" },
   { id: "education", label: "Education" },
   { id: "certifications", label: "Certifications" },
