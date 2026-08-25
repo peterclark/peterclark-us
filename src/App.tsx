@@ -8,7 +8,7 @@ import { Sidebar } from "@/components/sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { StatTiles, type Stat } from "@/components/stat-tiles"
 import { useScrollSpy } from "@/hooks/use-scroll-spy"
-import { CERTIFICATIONS, EDUCATION, PROFILE, ROLES, SECTIONS, SKILLS } from "@/data/resume"
+import { CERTIFICATIONS, EDUCATION, PROFILE, PROJECTS, ROLES, SECTIONS, SKILLS } from "@/data/resume"
 
 const SECTION_IDS = SECTIONS.map((section) => section.id)
 
@@ -34,13 +34,8 @@ export default function App() {
         <Sidebar active={active} />
 
         <main className="min-w-0 pt-7">
-          <Section id="overview" title="Overview">
+          <Section id="overview">
             <div className="print-tight mb-7">
-              <span className="mb-3.5 inline-flex items-center gap-2 rounded-full bg-ok-soft px-2.5 py-1 text-xs font-semibold text-ok">
-                <span aria-hidden="true" className="no-print size-1.5 rounded-full bg-current" />
-                {PROFILE.title} at {PROFILE.employer}
-              </span>
-
               <h1 className="text-pretty text-[clamp(1.75rem,4.4vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.028em]">
                 Full-stack engineer in San Antonio
               </h1>
@@ -57,6 +52,50 @@ export default function App() {
             <div className="flex flex-col gap-3">
               {ROLES.map((role) => (
                 <RoleCard key={role.id} role={role} />
+              ))}
+            </div>
+          </Section>
+
+          <Section id="projects" title="Projects" count={String(PROJECTS.length)}>
+            <div className="flex flex-col gap-2">
+              {PROJECTS.map((project) => (
+                <DetailRow
+                  key={project.name}
+                  title={
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-primary"
+                    >
+                      {project.name}
+                    </a>
+                  }
+                  subtitle={project.summary}
+                  trailing={
+                    // Badges report live CI state, so they say nothing frozen into
+                    // the PDF — and rendering them there would put a network fetch
+                    // in the middle of `npm run resume:pdf`.
+                    <div className="no-print flex flex-wrap items-center gap-2">
+                      {project.badges.map((badge) => (
+                        <a
+                          key={badge.label}
+                          href={badge.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <img
+                            src={badge.src}
+                            alt={`${project.name} ${badge.label}`}
+                            className="h-5 w-auto"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </a>
+                      ))}
+                    </div>
+                  }
+                />
               ))}
             </div>
           </Section>
