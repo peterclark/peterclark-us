@@ -173,6 +173,23 @@ export const PROJECTS: Project[] = [
       },
     ],
   },
+  {
+    name: "BattleDeck",
+    href: "https://battledeck.netlify.app",
+    summary: "A tap-friendly attack calculator for a tabletop wargame.",
+    badges: [
+      {
+        label: "CI",
+        src: "https://github.com/peterclark/battledeck/actions/workflows/ci.yml/badge.svg",
+        href: "https://github.com/peterclark/battledeck/actions/workflows/ci.yml",
+      },
+      {
+        label: "Coverage",
+        src: "https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fpeterclark%2Fbattledeck%2Fbadges%2Fcoverage.json",
+        href: "https://github.com/peterclark/battledeck/actions/workflows/ci.yml",
+      },
+    ],
+  },
 ]
 
 export const SKILLS: SkillGroup[] = [
