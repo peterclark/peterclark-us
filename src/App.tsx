@@ -34,13 +34,8 @@ export default function App() {
         <Sidebar active={active} />
 
         <main className="min-w-0 pt-7">
-          <Section id="overview" title="Overview">
+          <Section id="overview">
             <div className="print-tight mb-7">
-              <span className="mb-3.5 inline-flex items-center gap-2 rounded-full bg-ok-soft px-2.5 py-1 text-xs font-semibold text-ok">
-                <span aria-hidden="true" className="no-print size-1.5 rounded-full bg-current" />
-                {PROFILE.title} at {PROFILE.employer}
-              </span>
-
               <h1 className="text-pretty text-[clamp(1.75rem,4.4vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.028em]">
                 Full-stack engineer in San Antonio
               </h1>
