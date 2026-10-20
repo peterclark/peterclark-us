@@ -2,6 +2,7 @@ import { TooltipProvider } from "@/components/ui/tooltip"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { DetailRow } from "@/components/detail-row"
+import { ProjectCard } from "@/components/project-card"
 import { RoleCard } from "@/components/role-card"
 import { Section } from "@/components/section"
 import { Sidebar } from "@/components/sidebar"
@@ -57,45 +58,9 @@ export default function App() {
           </Section>
 
           <Section id="projects" title="Projects" count={String(PROJECTS.length)}>
-            <div className="flex flex-col gap-2">
+            <div className="grid gap-3 sm:grid-cols-2">
               {PROJECTS.map((project) => (
-                <DetailRow
-                  key={project.name}
-                  title={
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-primary"
-                    >
-                      {project.name}
-                    </a>
-                  }
-                  subtitle={project.summary}
-                  trailing={
-                    // Badges report live CI state, so they say nothing frozen into
-                    // the PDF — and rendering them there would put a network fetch
-                    // in the middle of `npm run resume:pdf`.
-                    <div className="no-print flex flex-wrap items-center gap-2">
-                      {project.badges.map((badge) => (
-                        <a
-                          key={badge.label}
-                          href={badge.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <img
-                            src={badge.src}
-                            alt={`${project.name} ${badge.label}`}
-                            className="h-5 w-auto"
-                            loading="lazy"
-                            decoding="async"
-                          />
-                        </a>
-                      ))}
-                    </div>
-                  }
-                />
+                <ProjectCard key={project.name} project={project} />
               ))}
             </div>
           </Section>
