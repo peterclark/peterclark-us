@@ -200,7 +200,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "Battle Map",
-    href: "https://github.com/peterclark/battle-map",
+    href: "https://battlemapgame.netlify.app",
     summary:
       "A digital war table for a tabletop wargame — multi-touch board, rules engine, and animated 3D figures under a top-down camera.",
     screenshot: battleMapShot,
