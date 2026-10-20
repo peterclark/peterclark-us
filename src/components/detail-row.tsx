@@ -9,8 +9,8 @@ type DetailRowProps = {
   overline?: ReactNode
   trailing?: ReactNode
   /**
-   * An icon shown in a shaded tab flush with the card's left edge, rounded on
-   * the right only so it reads as part of a circle — used for certifications.
+   * An icon shown in a shaded tab flush with the card's left edge, with a gentle
+   * curve on the right only — used for certifications.
    */
   leading?: ReactNode
 }
@@ -33,7 +33,7 @@ export function DetailRow({ title, subtitle, overline, trailing, leading }: Deta
 
   return (
     <Card className="print-block print-card flex overflow-hidden">
-      <div className="icon-tab flex w-16 shrink-0 items-center justify-center rounded-r-[50%] bg-accent pr-1">
+      <div className="icon-tab flex w-16 shrink-0 items-center justify-center rounded-tr-[1rem_50%] rounded-br-[1rem_50%] bg-accent pr-1">
         {leading}
       </div>
       {body}
