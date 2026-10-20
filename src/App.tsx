@@ -141,6 +141,15 @@ export default function App() {
                       cert.name
                     )
                   }
+                  leading={
+                    cert.logo ? (
+                      <img src={cert.logo} alt="" className="size-7 rounded-full object-contain" />
+                    ) : (
+                      <span aria-hidden className="text-2xl leading-none">
+                        {cert.emoji}
+                      </span>
+                    )
+                  }
                   trailing={<Badge className="font-mono tabular-nums">{cert.year}</Badge>}
                 />
               ))}

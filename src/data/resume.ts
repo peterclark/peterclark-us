@@ -8,6 +8,8 @@ import storymdLogo from "@/assets/logos/storymd-logo.png"
 import uscLogo from "@/assets/logos/usc-logo.png"
 import starbucksLogo from "@/assets/logos/starbucks-logo.png"
 import greenRiverLogo from "@/assets/logos/green-river-logo.png"
+import reactLogo from "@/assets/logos/certs/react.svg"
+import mongodbLogo from "@/assets/logos/certs/mongodb.svg"
 import pointingPageShot from "@/assets/screenshots/pointing-page.webp"
 import battledeckShot from "@/assets/screenshots/battledeck.webp"
 import battleMapShot from "@/assets/screenshots/battle-map.webp"
@@ -286,28 +288,33 @@ export const EDUCATION = [
   },
 ]
 
-export const CERTIFICATIONS = [
-  { name: "Sophos AI Champion", year: 2025 },
+/** Each entry shows the issuer's logo where there is one, an emoji otherwise. */
+export const CERTIFICATIONS: { name: string; year: number; href?: string; logo?: string; emoji?: string }[] = [
+  { name: "Sophos AI Champion", year: 2025, logo: sophosLogo },
   {
     name: "Mastering React",
     year: 2019,
     href: "https://www.dropbox.com/s/irucqzswao2c4iy/Mastering%20React%20Certification.pdf",
+    logo: reactLogo,
   },
   {
     name: "MongoDB Certified Developer",
     year: 2015,
     href: "https://university.mongodb.com/certification",
+    logo: mongodbLogo,
   },
-  { name: "Diamond Achievement Award", year: 2012 },
+  { name: "Diamond Achievement Award", year: 2012, emoji: "💎" },
   {
     name: "Certified Scrum Master",
     year: 2008,
     href: "https://www.dropbox.com/s/rolcsrjv15dpoq5/Scrum%20Certificate.pdf",
+    emoji: "🏉",
   },
   {
     name: "Java Certified Developer",
     year: 2001,
     href: "https://www.dropbox.com/s/pn9e3t4j0dpnkku/Java%20Certified%20Professional.pdf",
+    emoji: "☕",
   },
 ]
 

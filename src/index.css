@@ -242,8 +242,17 @@
     page-break-inside: avoid;
   }
 
-  .print-flat {
+  .print-flat,
+  .print-card {
     box-shadow: none !important;
     border-color: #ccc !important;
+  }
+
+  /* Keep the certification icon tabs as a light grey wash on paper. */
+  .icon-tab {
+    width: 2.75rem !important;
+    background: #eeeeee !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 }
