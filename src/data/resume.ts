@@ -8,6 +8,10 @@ import storymdLogo from "@/assets/logos/storymd-logo.png"
 import uscLogo from "@/assets/logos/usc-logo.png"
 import starbucksLogo from "@/assets/logos/starbucks-logo.png"
 import greenRiverLogo from "@/assets/logos/green-river-logo.png"
+import pointingPageShot from "@/assets/screenshots/pointing-page.webp"
+import battledeckShot from "@/assets/screenshots/battledeck.webp"
+import battleMapShot from "@/assets/screenshots/battle-map.webp"
+import delishShot from "@/assets/screenshots/delish.webp"
 
 export type Client = {
   name: string
@@ -39,6 +43,8 @@ export type Project = {
   /** The running app where there is one, otherwise the repository. */
   href: string
   summary: string
+  /** A 16:10 capture of the app, shown above the card on screen only. */
+  screenshot: string
   /** Live CI images served by the project's own workflow. */
   badges: { label: string; src: string; href: string }[]
 }
@@ -160,6 +166,7 @@ export const PROJECTS: Project[] = [
     name: "pointing.page",
     href: "https://pointing.page",
     summary: "A story pointing React app.",
+    screenshot: pointingPageShot,
     badges: [
       {
         label: "CI",
@@ -177,6 +184,7 @@ export const PROJECTS: Project[] = [
     name: "BattleDeck",
     href: "https://battledeck.netlify.app",
     summary: "A tap-friendly attack calculator for a tabletop wargame.",
+    screenshot: battledeckShot,
     badges: [
       {
         label: "CI",
@@ -192,9 +200,10 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "Battle Map",
-    href: "https://github.com/peterclark/battle-map",
+    href: "https://battlemapgame.netlify.app",
     summary:
       "A digital war table for a tabletop wargame — multi-touch board, rules engine, and animated 3D figures under a top-down camera.",
+    screenshot: battleMapShot,
     badges: [
       {
         label: "CI",
@@ -207,6 +216,14 @@ export const PROJECTS: Project[] = [
         href: "https://github.com/peterclark/battle-map/actions/workflows/ci.yml",
       },
     ],
+  },
+  {
+    name: "Delish",
+    href: "https://delish.petey.live",
+    summary:
+      "A mobile-first recipe box — upload recipe screenshots and in-browser OCR turns them into searchable recipe cards.",
+    screenshot: delishShot,
+    badges: [],
   },
 ]
 
