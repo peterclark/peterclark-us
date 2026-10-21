@@ -271,9 +271,11 @@ export const SKILLS: SkillGroup[] = [
   },
 ]
 
+/** No logo files for the schools yet, so each gets a monogram in its colors. */
 export const EDUCATION = [
   {
     school: "Texas Lutheran University",
+    monogram: { text: "TLU", fg: "#f2b52b", bg: "#111111" },
     href: "http://www.tlu.edu",
     field: "Physics",
     honors: ["Magna Cum Laude"],
@@ -281,6 +283,7 @@ export const EDUCATION = [
   },
   {
     school: "University of Texas at San Antonio",
+    monogram: { text: "UTSA", fg: "#f15a22", bg: "#0c2340" },
     href: "http://www.utsa.edu",
     field: "Electrical Engineering coursework",
     honors: [],

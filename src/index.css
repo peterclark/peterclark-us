@@ -206,6 +206,7 @@
 
   h2 {
     font-size: 12pt !important;
+    break-after: avoid;
   }
 
   .print-flat {
