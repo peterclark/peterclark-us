@@ -1,7 +1,10 @@
+import { Globe, Mail, Phone } from "lucide-react"
+
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { DetailRow } from "@/components/detail-row"
+import { GithubIcon } from "@/components/github-icon"
 import { ProjectCard } from "@/components/project-card"
 import { RoleCard } from "@/components/role-card"
 import { Section } from "@/components/section"
@@ -92,6 +95,15 @@ export default function App() {
               {EDUCATION.map((entry) => (
                 <DetailRow
                   key={entry.school}
+                  leading={
+                    <span
+                      aria-hidden
+                      className="flex size-9 items-center justify-center rounded-full text-[10px] font-bold tracking-tight"
+                      style={{ color: entry.monogram.fg, background: entry.monogram.bg }}
+                    >
+                      {entry.monogram.text}
+                    </span>
+                  }
                   title={
                     <a
                       href={entry.href}
@@ -159,6 +171,8 @@ export default function App() {
           <Section id="contact" title="Contact">
             <div className="grid gap-2 sm:grid-cols-2">
               <DetailRow
+                subtle
+                leading={<Mail className="size-5" />}
                 overline="Email"
                 title={
                   <a href={`mailto:${PROFILE.email}`} className="hover:text-primary">
@@ -167,6 +181,8 @@ export default function App() {
                 }
               />
               <DetailRow
+                subtle
+                leading={<Phone className="size-5" />}
                 overline="Phone"
                 title={
                   <a href={PROFILE.phoneHref} className="hover:text-primary">
@@ -175,6 +191,8 @@ export default function App() {
                 }
               />
               <DetailRow
+                subtle
+                leading={<Globe className="size-5" />}
                 overline="Website"
                 title={
                   <a href={PROFILE.siteHref} className="hover:text-primary">
@@ -183,6 +201,8 @@ export default function App() {
                 }
               />
               <DetailRow
+                subtle
+                leading={<GithubIcon className="size-5" />}
                 overline="GitHub"
                 title={
                   <a
