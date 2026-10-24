@@ -15,6 +15,7 @@ import { useScrollSpy } from "@/hooks/use-scroll-spy"
 import { CERTIFICATIONS, EDUCATION, PROFILE, PROJECTS, ROLES, SECTIONS, SKILLS } from "@/data/resume"
 
 const SECTION_IDS = SECTIONS.map((section) => section.id)
+const VISIBLE_PROJECTS = PROJECTS.filter((project) => !project.hidden)
 
 const STATS: Stat[] = [
   { label: "Roles", value: String(ROLES.length), detail: "Engineer → director" },
@@ -60,9 +61,9 @@ export default function App() {
             </div>
           </Section>
 
-          <Section id="projects" title="Projects" count={String(PROJECTS.length)}>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {PROJECTS.map((project) => (
+          <Section id="projects" title="Projects" count={String(VISIBLE_PROJECTS.length)}>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {VISIBLE_PROJECTS.map((project) => (
                 <ProjectCard key={project.name} project={project} />
               ))}
             </div>
