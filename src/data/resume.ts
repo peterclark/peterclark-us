@@ -49,6 +49,8 @@ export type Project = {
   screenshot: string
   /** Live CI images served by the project's own workflow. */
   badges: { label: string; src: string; href: string }[]
+  /** Kept in the data but left off the site and the PDF. */
+  hidden?: boolean
 }
 
 export type SkillGroup = {
@@ -203,6 +205,7 @@ export const PROJECTS: Project[] = [
   {
     name: "Battle Map",
     href: "https://battlemapgame.netlify.app",
+    hidden: true,
     summary:
       "A digital war table for a tabletop wargame — multi-touch board, rules engine, and animated 3D figures under a top-down camera.",
     screenshot: battleMapShot,
