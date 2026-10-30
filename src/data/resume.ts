@@ -224,7 +224,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "Delish",
-    href: "https://delish.petey.live",
+    href: "https://delish.petey.live/welcome",
     summary:
       "A mobile-first recipe box — upload recipe screenshots and in-browser OCR turns them into searchable recipe cards.",
     screenshot: delishShot,
