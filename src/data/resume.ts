@@ -11,7 +11,7 @@ import greenRiverLogo from "@/assets/logos/green-river-logo.png"
 import reactLogo from "@/assets/logos/certs/react.svg"
 import mongodbLogo from "@/assets/logos/certs/mongodb.svg"
 import pointingPageShot from "@/assets/screenshots/pointing-page.webp"
-import battledeckShot from "@/assets/screenshots/battledeck.webp"
+import tallyHoShot from "@/assets/screenshots/tally-ho.webp"
 import battleMapShot from "@/assets/screenshots/battle-map.webp"
 import delishShot from "@/assets/screenshots/delish.webp"
 
@@ -185,22 +185,12 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    name: "BattleDeck",
-    href: "https://battledeck.netlify.app",
-    summary: "A tap-friendly attack calculator for a tabletop wargame.",
-    screenshot: battledeckShot,
-    badges: [
-      {
-        label: "CI",
-        src: "https://github.com/peterclark/battledeck/actions/workflows/ci.yml/badge.svg",
-        href: "https://github.com/peterclark/battledeck/actions/workflows/ci.yml",
-      },
-      {
-        label: "Coverage",
-        src: "https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fpeterclark%2Fbattledeck%2Fbadges%2Fcoverage.json",
-        href: "https://github.com/peterclark/battledeck/actions/workflows/ci.yml",
-      },
-    ],
+    name: "Tally Ho",
+    href: "https://tally-ho.petey.live",
+    summary:
+      "A game night score keeper. Add players fast, give each a color and emoji, then tap, swipe or hold to score.",
+    screenshot: tallyHoShot,
+    badges: [],
   },
   {
     name: "Battle Map",
