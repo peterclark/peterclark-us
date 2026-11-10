@@ -73,6 +73,16 @@ so an edited site with a stale PDF is the failure mode to watch for.
 If Playwright can't find Chromium, either run `npx playwright install chromium` or
 point `PLAYWRIGHT_CHROMIUM_PATH` at an existing executable.
 
+## Icons
+
+The browser-tab and Home Screen icons are drawn as SVG in `scripts/icons/`
+(`icon.svg`, plus `icon-maskable.svg` with the artwork pulled into Android's safe
+zone) and `public/favicon.svg`. `npm run icons` renders the PNGs into `public/`:
+`apple-touch-icon.png` (180, no transparency, since iOS rounds it itself),
+`icon-192.png`, `icon-512.png`, `icon-maskable-512.png` and `favicon.png`.
+`public/site.webmanifest` points Android at them. Text in the SVGs is outlined
+from Geist, so they render the same everywhere.
+
 ## Adding shadcn components
 
 `components.json` is configured, so new primitives can be pulled in directly:
