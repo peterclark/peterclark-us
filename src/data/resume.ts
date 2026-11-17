@@ -38,6 +38,8 @@ export type Role = {
   /** Stack entries rendered with emphasis — the headline technologies. */
   lead?: string[]
   clients?: Client[]
+  /** Achievement bullets for the downloadable résumé PDF only; the site shows `summary`. */
+  highlights: string[]
 }
 
 export type Project = {
@@ -110,6 +112,13 @@ export const ROLES: Role[] = [
       "Claude Code",
       "Codex",
     ],
+    highlights: [
+      "Full-stack engineer on Sophos MDR, a 24/7 managed detection and response service used by 40,000+ organizations, where analysts and agentic AI investigate and respond to threats across 500+ integrations spanning endpoint, network, cloud, identity, and email.",
+      "Build across the TypeScript and React front end and the NestJS services on AWS behind it, with infrastructure as code and feature-flagged delivery.",
+      "Authored the Sophos AI Champions team's AI orchestration pipeline: cross-repo automation that carries a Jira ticket through to an open pull request.",
+      "The pipeline scores tickets for implementation readiness and rewrites those that fall short, runs a coding agent against the target repository, and validates through lint, unit, and component tests, with a targeted agent fix and retry on each failure.",
+      "Made pipeline runs checkpointed, so a long run resumes at the phase where it stopped.",
+    ],
   },
   {
     id: "freelance",
@@ -121,6 +130,11 @@ export const ROLES: Role[] = [
       "Lead web developer for a range of clients — insurance, government, higher education, retail, and health startups. Particularly adept at UX/UI work favoring clean, simple user interfaces, and at blending structure, design, and behavior in web applications.",
     lead: ["Rails 5", "React"],
     stack: ["Rails 5", "React", "Java", "Ruby", "Postgres", "MySQL", "Elasticsearch", "Heroku", "AWS"],
+    highlights: [
+      "Lead web developer for clients in insurance, government, higher education, retail, and health startups.",
+      "Focused on UX/UI work favoring clean, simple user interfaces.",
+      "Blended structure, design, and behavior in Rails and React web applications.",
+    ],
     clients: [
       { name: "USAA", href: "https://www.usaa.com/join/start", logo: usaaLogo },
       {
@@ -149,6 +163,11 @@ export const ROLES: Role[] = [
       "Part of an agile team designing Rackspace's internal sales quoting system. Key contributor across the user interface, RESTful API design, and NoSQL database architecture. Author of two Ruby gems providing access to Rackspace's billing and inventory systems over XML and JSON APIs.",
     lead: ["Ruby on Rails"],
     stack: ["Ruby on Rails", "MongoDB", "REST APIs", "Bootstrap"],
+    highlights: [
+      "Member of an agile team designing Rackspace's internal sales quoting system.",
+      "Key contributor across the user interface, RESTful API design, and NoSQL database architecture.",
+      "Authored two Ruby gems providing access to Rackspace's billing and inventory systems over XML and JSON APIs.",
+    ],
   },
   {
     id: "tetco",
@@ -162,6 +181,12 @@ export const ROLES: Role[] = [
       "Led the company's entry onto the web and built cost-saving applications that improved collaboration across subsidiary companies. Directed all technology initiatives — development, network and communications infrastructure, security, PCI compliance, deployment, and retail technology — leading 19 IT professionals including seven direct reports.",
     lead: ["Java"],
     stack: ["Java", "JSP", "MS SQL Server", "PCI compliance", "Team leadership"],
+    highlights: [
+      "Directed all technology initiatives: development, network and communications infrastructure, security, PCI compliance, deployment, and retail technology.",
+      "Led 19 IT professionals, including seven direct reports.",
+      "Led the company's entry onto the web.",
+      "Built cost-saving applications that improved collaboration across subsidiary companies.",
+    ],
   },
 ]
 
